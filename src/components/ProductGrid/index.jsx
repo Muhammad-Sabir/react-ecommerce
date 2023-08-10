@@ -19,8 +19,14 @@ const ProductGrid = () => {
 
 	console.log(products);
 
-	if (!products) {
-		return <div className={classes['loading-bar']}></div>;
+	if (!products.length) {
+		return (
+			<div className={classes['custom-loader-container']}>
+				<div className={classes['custom-loader']}></div>
+			</div>
+		);
+	} else {
+		<></>;
 	}
 };
 

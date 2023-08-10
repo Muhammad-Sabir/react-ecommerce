@@ -1,0 +1,22 @@
+.product {
+    background-color: #E6E6F2;
+}
+
+.product__details {
+	padding: 1rem;
+}
+
+.product__details__category {
+	font-weight: 500;
+	color: #9494a1;
+}
+
+.product__details__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.product__details__price {
+    color: rgb(45, 45, 201);
+    font-weight: 500;
+}

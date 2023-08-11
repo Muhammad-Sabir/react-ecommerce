@@ -31,7 +31,6 @@ const ProductGrid = () => {
 
 	return (
 		<div className={classes['products']}>
-			<h1>hi</h1>
 			{products.map((product) => {
 				return (
 					<Product

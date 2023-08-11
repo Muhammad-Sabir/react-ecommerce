@@ -38,3 +38,15 @@
     transform: rotate(1turn)
   }
 }
+
+.products {
+  padding: 10rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rem;
+}
+
+.products__product {
+  max-width: 20rem;
+  height: 300px;
+}

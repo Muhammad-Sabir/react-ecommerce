@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import Product from '../Product';
+
 import classes from './styles.module.css';
 
 const ProductGrid = () => {
@@ -25,9 +27,25 @@ const ProductGrid = () => {
 				<div className={classes['custom-loader']}></div>
 			</div>
 		);
-	} else {
-		<></>;
 	}
+
+	return (
+		<div className={classes['products']}>
+			<h1>hi</h1>
+			{products.map((product) => {
+				return (
+					<Product
+						key={product.id}
+						title={product.title}
+						price={product.price}
+						category={product.category}
+						imageLink={product.image}
+						className={classes['products__product']}
+					></Product>
+				);
+			})}
+		</div>
+	);
 };
 
 export default ProductGrid;

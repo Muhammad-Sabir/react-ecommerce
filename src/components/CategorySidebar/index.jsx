@@ -6,13 +6,13 @@ String.prototype.capitalize = function () {
 	return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
 };
 
-const CategorySidebar = ({ products }) => {
+const CategorySidebar = ({ products, className }) => {
 	const categories = [
 		...new Set(products.map((product) => product.category)),
 	];
 
 	return (
-		<div className={classes['sidebar']}>
+		<div className={`${classes['sidebar']} ${className}`}>
 			<h2 className={classes['sidebar__heading']}>Products Category</h2>
 
 			<div className={classes['sidebar__categories']}>

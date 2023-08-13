@@ -4,9 +4,9 @@ import Product from '../Product';
 
 import classes from './styles.module.css';
 
-const ProductGrid = ({ products }) => {
+const ProductGrid = ({ products, className }) => {
 	return (
-		<div className={classes['products']}>
+		<div className={`${classes['products']} ${className}`}>
 			{products.map((product) => {
 				return (
 					<Product

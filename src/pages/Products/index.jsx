@@ -35,8 +35,6 @@ const Products = () => {
 		}
 	}, [category]);
 
-	console.log(products);
-
 	if (!productsToShow.length) {
 		return (
 			<div className={classes['custom-loader-container']}>
@@ -76,7 +74,9 @@ const Products = () => {
 
 			<div className={classes['products-page__category-products']}>
 				<CategorySidebar
-					products={productsToShow}
+					products={products}
+					setCategory={setCategory}
+					currentCategory={category}
 					className={classes['products-page__sidebar']}
 				></CategorySidebar>
 				<ProductGrid

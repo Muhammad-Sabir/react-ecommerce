@@ -20,6 +20,11 @@
     font-size: 1.1rem;
 }
 
+.sidebar__categories__selected {
+    color: rgb(45, 45, 201);
+    font-weight: 700;
+}
+
 .sidebar__categories__category:hover {
     color: rgb(45, 45, 201);
 }

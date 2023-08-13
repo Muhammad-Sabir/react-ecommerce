@@ -8,21 +8,36 @@ import classes from './styles.module.css';
 
 const Products = () => {
 	const [products, setProducts] = useState([]);
+	const [productsToShow, setProductsToShow] = useState([]);
+
+	const [category, setCategory] = useState('');
 
 	useEffect(() => {
 		axios
 			.get('https://fakestoreapi.com/products')
 			.then((response) => {
 				setProducts(response.data);
+				setProductsToShow(response.data);
 			})
 			.catch((error) => {
 				console.error('Error fetching products:', error);
 			});
 	}, []);
 
+	useEffect(() => {
+		if (category === '') setProductsToShow([...products]);
+		else {
+			const prods = products.filter(
+				(product) => product.category === category
+			);
+
+			setProductsToShow([...prods]);
+		}
+	}, [category]);
+
 	console.log(products);
 
-	if (!products.length) {
+	if (!productsToShow.length) {
 		return (
 			<div className={classes['custom-loader-container']}>
 				<div className={classes['custom-loader']}></div>
@@ -61,11 +76,11 @@ const Products = () => {
 
 			<div className={classes['products-page__category-products']}>
 				<CategorySidebar
-					products={products}
+					products={productsToShow}
 					className={classes['products-page__sidebar']}
 				></CategorySidebar>
 				<ProductGrid
-					products={products}
+					products={productsToShow}
 					className={classes['products-page__products-grid']}
 				></ProductGrid>
 			</div>

@@ -13,6 +13,7 @@ const Products = () => {
 	const [categorizedProducts, setCategorizedProducts] = useState([]);
 
 	const [category, setCategory] = useState('');
+	const [selectedOption, setSelectedOption] = useState('');
 
 	useEffect(() => {
 		axios
@@ -38,15 +39,62 @@ const Products = () => {
 			setProductsToShow([...prods]);
 			setCategorizedProducts([...prods]);
 		}
+
+		setSelectedOption('');
 	}, [category]);
 
-	const onSearchHandler = (input) => {
+	const onSearchHandler = (event) => {
+		const input = event.target.value;
+		console.log(input);
+
 		const prods = categorizedProducts.filter((product) => {
 			return product.title.toLowerCase().startsWith(input.toLowerCase());
 		});
 
 		if (input.trim()) setProductsToShow(prods);
 		else setProductsToShow([...categorizedProducts]);
+
+		setSelectedOption('');
+	};
+
+	const selectChangehandler = (event) => {
+		const value = event.target.value;
+		let prods = [];
+
+		if (value === 'price-ascending') {
+			prods = productsToShow.slice().sort((a, b) => a.price - b.price);
+		} else if (value === 'price-descending') {
+			prods = productsToShow.slice().sort((a, b) => b.price - a.price);
+		} else if (value === 'alphabets-ascending') {
+			prods = productsToShow.slice().sort((a, b) => {
+				const nameA = a.title.toUpperCase();
+				const nameB = b.title.toUpperCase();
+
+				if (nameA < nameB) {
+					return -1;
+				}
+				if (nameA > nameB) {
+					return 1;
+				}
+				return 0;
+			});
+		} else {
+			prods = productsToShow.slice().sort((a, b) => {
+				const nameA = a.title.toUpperCase();
+				const nameB = b.title.toUpperCase();
+
+				if (nameA > nameB) {
+					return -1;
+				}
+				if (nameA < nameB) {
+					return 1;
+				}
+				return 0;
+			});
+		}
+
+		setProductsToShow(prods);
+		setSelectedOption(value);
 	};
 
 	if (loading) {
@@ -62,8 +110,9 @@ const Products = () => {
 			<div className={classes['products-page__search-filter']}>
 				<select
 					name="sort"
-					defaultValue=""
+					value={selectedOption}
 					className={classes['select']}
+					onChange={selectChangehandler}
 				>
 					<option value="" disabled>
 						Sort Products
@@ -83,9 +132,7 @@ const Products = () => {
 					name="text"
 					placeholder="Search..."
 					type="search"
-					onChange={(e) => {
-						onSearchHandler(e.target.value);
-					}}
+					onChange={onSearchHandler}
 				/>
 			</div>
 

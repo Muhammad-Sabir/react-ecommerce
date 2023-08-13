@@ -32,6 +32,23 @@ const Products = () => {
 
 	return (
 		<div className={classes['products-page']}>
+			<div className={classes['products-page__search-filter']}>
+				<input
+					class="input"
+					name="text"
+					placeholder="Search..."
+					type="search"
+				/>
+
+				<select name="sort" id="sort">
+					<option value="" disabled>Sort Products</option>
+					<option value="price-ascending">Price Ascending</option>
+					<option value="price-descending">Price Descending</option>
+					<option value="alphabets-ascending">Alphabets Ascending</option>
+					<option value="alphabets-descending">Alphabets Descending</option>
+				</select>
+			</div>
+
 			<CategorySidebar
 				products={products}
 				className={classes['products-page__sidebar']}

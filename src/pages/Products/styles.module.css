@@ -1,6 +1,7 @@
 .products-page {
   display: flex;
-  padding: 0 15rem;
+  padding: 5rem 15rem;
+
 }
 
 .products-page__sidebar {

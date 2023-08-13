@@ -46,7 +46,8 @@ input:hover {
 	width: 15%;
 }
 
-.products-page__products-grid {
+.products-page__products-grid,
+.products-page__product-not-found {
 	width: 85%;
 	padding-left: 5rem;
 }

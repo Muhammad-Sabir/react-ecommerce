@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Product from './components/Product';
-import ProductGrid from './components/ProductGrid';
+import Products from './pages/Products';
 import Navbar from './components/Navbar';
 
 import './App.css';
@@ -10,7 +9,7 @@ function App() {
 	return (
 		<>
 			<Navbar></Navbar>
-			<ProductGrid></ProductGrid>
+			<Products></Products>
 		</>
 	);
 }

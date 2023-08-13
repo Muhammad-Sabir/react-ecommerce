@@ -5,8 +5,8 @@ import classes from './styles.module.css';
 const Navbar = () => {
 	return (
 		<nav>
-			<div className="logo">E-COMMERCE</div>
-			<ul className="nav-links">
+			<div className={classes['logo']}>E-COMMERCE</div>
+			<ul className={classes['nav-links']}>
 				<li>
 					<a href="#">Home</a>
 				</li>

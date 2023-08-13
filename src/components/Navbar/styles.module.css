@@ -1,0 +1,31 @@
+nav {
+	background-color: #292c39;
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+    padding: 1rem 20rem;
+}
+
+.logo {
+	font-size: 1.8rem;
+    letter-spacing: 4px;
+	font-family: 'Fjalla One', sans-serif;
+}
+
+.nav-links {
+	list-style: none;
+	display: flex;
+	gap: 2rem;
+}
+
+.nav-links li a {
+	color: white;
+	text-decoration: none;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.nav-links li a:hover {
+	color: lightgray;
+}

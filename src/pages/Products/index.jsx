@@ -32,8 +32,14 @@ const Products = () => {
 
 	return (
 		<div className={classes['products-page']}>
-			<CategorySidebar products={products}></CategorySidebar>
-			<ProductGrid products={products}></ProductGrid>
+			<CategorySidebar
+				products={products}
+				className={classes['products-page__sidebar']}
+			></CategorySidebar>
+			<ProductGrid
+				products={products}
+				className={classes['products-page__products-grid']}
+			></ProductGrid>
 		</div>
 	);
 };

@@ -1,5 +1,15 @@
 .products-page {
   display: flex;
+  padding: 0 15rem;
+}
+
+.products-page__sidebar {
+  width: 15%;
+}
+
+.products-page__products-grid {
+  width: 85%;
+  padding-left: 5rem;
 }
 
 /*-----------*/

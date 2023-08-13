@@ -14,7 +14,10 @@ const CategorySidebar = ({ products, className }) => {
 			<div className={classes['sidebar__categories']}>
 				{categories.map((category) => {
 					return (
-						<p className={classes['sidebar__categories__category']}>
+						<p
+							key={category}
+							className={classes['sidebar__categories__category']}
+						>
 							{category}
 						</p>
 					);

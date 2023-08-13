@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Products from './pages/Products';
+import Navbar from './components/Navbar';
 
 import './App.css';
 

@@ -2,10 +2,6 @@ import React from 'react';
 
 import classes from './styles.module.css';
 
-String.prototype.capitalize = function () {
-	return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
-};
-
 const CategorySidebar = ({ products, className }) => {
 	const categories = [
 		...new Set(products.map((product) => product.category)),

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import ProductGrid from '../../components/ProductGrid';
+import CategorySidebar from '../../components/CategorySidebar';
 
 import classes from './styles.module.css';
 
@@ -29,7 +30,12 @@ const Products = () => {
 		);
 	}
 
-	return <ProductGrid products={products}></ProductGrid>;
+	return (
+		<div className={classes['products-page']}>
+			<CategorySidebar products={products}></CategorySidebar>
+			<ProductGrid products={products}></ProductGrid>
+		</div>
+	);
 };
 
 export default Products;

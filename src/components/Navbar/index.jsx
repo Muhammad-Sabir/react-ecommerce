@@ -1,6 +1,7 @@
 import React from 'react';
 
 import classes from './styles.module.css';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 	return (
@@ -8,13 +9,13 @@ const Navbar = () => {
 			<div className={classes['logo']}>E-COMMERCE</div>
 			<ul className={classes['nav-links']}>
 				<li>
-					<a href="#">Home</a>
+					<Link to="/">Home</Link>
 				</li>
 				<li>
-					<a href="#">Products</a>
+					<Link to="/products">Products</Link>
 				</li>
 				<li>
-					<a href="#">About</a>
+					<Link to="/categories">Catergories</Link>
 				</li>
 			</ul>
 		</nav>

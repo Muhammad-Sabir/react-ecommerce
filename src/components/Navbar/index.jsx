@@ -1,7 +1,7 @@
 import React from 'react';
 
 import classes from './styles.module.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
 	return (
@@ -9,13 +9,13 @@ const Navbar = () => {
 			<div className={classes['logo']}>E-COMMERCE</div>
 			<ul className={classes['nav-links']}>
 				<li>
-					<Link to="/">Home</Link>
+					<NavLink to="/">Home</NavLink>
 				</li>
 				<li>
-					<Link to="/products">Products</Link>
+					<NavLink to="/products">Products</NavLink>
 				</li>
 				<li>
-					<Link to="/categories">Catergories</Link>
+					<NavLink to="/categories">Catergories</NavLink>
 				</li>
 			</ul>
 		</nav>

@@ -4,12 +4,12 @@ nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-    padding: 1rem 15rem;
+	padding: 1rem 15rem;
 }
 
 .logo {
 	font-size: 1.8rem;
-    letter-spacing: 4px;
+	letter-spacing: 4px;
 	font-family: 'Fjalla One', sans-serif;
 }
 
@@ -22,10 +22,14 @@ nav {
 .nav-links li a {
 	color: white;
 	text-decoration: none;
-    font-weight: 500;
-    font-size: 1.2rem;
+	font-weight: 500;
+	font-size: 1.2rem;
 }
 
 .nav-links li a:hover {
 	color: lightgray;
+}
+
+.nav-links li a.active {
+	font-weight: 700;
 }

@@ -10,10 +10,15 @@ import './App.css';
 
 function App() {
 	return (
-		<Routes>
-			<Route path="/" element={<Home />} />
-			<Route path="products" element={<Products />} />
-		</Routes>
+		<>
+			<Navbar />
+
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="products" element={<Products />} />
+				<Route path="categories" element={<Categories />} />
+			</Routes>
+		</>
 	);
 }
 

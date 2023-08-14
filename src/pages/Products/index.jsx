@@ -30,8 +30,10 @@ const Products = () => {
 	}, []);
 
 	useEffect(() => {
-		if (category === '') setProductsToShow([...products]);
-		else {
+		if (category === '') {
+			setProductsToShow([...products]);
+			setCategorizedProducts([...products]);
+		} else {
 			const prods = products.filter(
 				(product) => product.category === category
 			);
@@ -51,8 +53,9 @@ const Products = () => {
 			return product.title.toLowerCase().startsWith(input.toLowerCase());
 		});
 
-		if (input.trim()) setProductsToShow(prods);
-		else setProductsToShow([...categorizedProducts]);
+		if (input.trim()) {
+			setProductsToShow(prods);
+		} else setProductsToShow([...categorizedProducts]);
 
 		setSelectedOption('');
 	};

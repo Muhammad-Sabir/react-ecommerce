@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 
 import ProductGrid from '../../components/ProductGrid';
@@ -7,12 +8,18 @@ import CategorySidebar from '../../components/CategorySidebar';
 import classes from './styles.module.css';
 
 const Products = () => {
+	const { categoryParam } = useParams();
+	const [category, setCategory] = useState('');
+
+	useEffect(() => {
+		setCategory(categoryParam || '');
+	}, [categoryParam]);
+
 	const [loading, setLoading] = useState(true);
 	const [products, setProducts] = useState([]);
 	const [productsToShow, setProductsToShow] = useState([]);
 	const [categorizedProducts, setCategorizedProducts] = useState([]);
 
-	const [category, setCategory] = useState('');
 	const [selectedOption, setSelectedOption] = useState('');
 
 	useEffect(() => {
@@ -30,8 +37,10 @@ const Products = () => {
 	}, []);
 
 	useEffect(() => {
-		if (category === '') setProductsToShow([...products]);
-		else {
+		if (category === '') {
+			setProductsToShow([...products]);
+			setCategorizedProducts([...products]);
+		} else {
 			const prods = products.filter(
 				(product) => product.category === category
 			);
@@ -51,8 +60,9 @@ const Products = () => {
 			return product.title.toLowerCase().startsWith(input.toLowerCase());
 		});
 
-		if (input.trim()) setProductsToShow(prods);
-		else setProductsToShow([...categorizedProducts]);
+		if (input.trim()) {
+			setProductsToShow(prods);
+		} else setProductsToShow([...categorizedProducts]);
 
 		setSelectedOption('');
 	};
@@ -139,7 +149,6 @@ const Products = () => {
 			<div className={classes['products-page__category-products']}>
 				<CategorySidebar
 					products={products}
-					setCategory={setCategory}
 					currentCategory={category}
 					className={classes['products-page__sidebar']}
 				></CategorySidebar>

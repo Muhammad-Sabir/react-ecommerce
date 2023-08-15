@@ -1,22 +1,21 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import classes from './styles.module.css';
 
-const CategorySidebar = ({
-	products,
-	className,
-	setCategory,
-	currentCategory,
-}) => {
+const CategorySidebar = ({ products, className, currentCategory }) => {
+	const navigate = useNavigate();
+
 	const categories = [
 		...new Set(products.map((product) => product.category)),
 	];
 
 	const categoryClickHandler = (category) => {
-		if (category !== currentCategory)
-			setCategory(category);
-		else 
-			setCategory("")
+		if (category !== currentCategory) {
+			navigate(`${category}`);
+		} else {
+			navigate('');
+		}
 	};
 
 	return (

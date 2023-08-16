@@ -23,11 +23,18 @@ const Navbar = () => {
 
 					{authContext.isLoggedIn ? (
 						<li className={classes['authentication-btn']}>
-							<NavLink to="/signin">Sign In</NavLink>
+							<NavLink
+								to="/"
+								onClick={() => {
+									authContext.onLogout();
+								}}
+							>
+								Logout
+							</NavLink>
 						</li>
 					) : (
 						<li className={classes['authentication-btn']}>
-							<NavLink to="/products">Sign Up</NavLink>
+							<NavLink to="/login">Sign In</NavLink>
 						</li>
 					)}
 				</ul>

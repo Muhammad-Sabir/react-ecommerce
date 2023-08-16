@@ -9,6 +9,7 @@ const Login = () => {
 		<Formik>
 			<Form className={classes['form']}>
 				<p className={classes['form-title']}>Sign in to your account</p>
+				
 				<div className={classes['input-container']}>
 					<Field type="email" placeholder="Enter email" />
 					<span></span>

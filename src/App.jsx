@@ -7,12 +7,14 @@ import Products from './pages/Products';
 import Categories from './pages/Categories';
 import Error from './pages/Error';
 
+import Login from './pages/Login';
+
 import './App.css';
 
 function App() {
 	return (
 		<>
-			<Navbar />
+			{/* <Navbar />
 
 			<Routes>
 				<Route path="/" element={<Home />} />
@@ -21,7 +23,9 @@ function App() {
 				</Route>
 				<Route path="categories" element={<Categories />} />
 				<Route path="*" element={<Error />} />
-			</Routes>
+			</Routes> */}
+
+			<Login></Login>
 		</>
 	);
 }

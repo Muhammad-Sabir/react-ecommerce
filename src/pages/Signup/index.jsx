@@ -38,7 +38,7 @@ const Signup = () => {
 			.oneOf([yup.ref('password'), null], 'Passwords must match'),
 	});
 
-	const handleSubmit = () => {
+	const handleSubmit = (values) => {
 		navigate('/');
 	};
 
@@ -75,6 +75,19 @@ const Signup = () => {
 
 				<div className={classes['input-container']}>
 					<Field
+						type="text"
+						name="contactNumber"
+						placeholder="Enter Contact Number"
+					/>
+					<ErrorMessage
+						name="contactNumber"
+						component="div"
+						className={classes['error-message']}
+					/>
+				</div>
+
+				<div className={classes['input-container']}>
+					<Field
 						type="password"
 						name="password"
 						placeholder="Enter password"
@@ -88,12 +101,12 @@ const Signup = () => {
 
 				<div className={classes['input-container']}>
 					<Field
-						type="text"
-						name="contactNumber"
-						placeholder="Enter password"
+						type="password"
+						name="confirmPassword"
+						placeholder="Confirm Password"
 					/>
 					<ErrorMessage
-						name="contactNumber"
+						name="confirmPassword"
 						component="div"
 						className={classes['error-message']}
 					/>

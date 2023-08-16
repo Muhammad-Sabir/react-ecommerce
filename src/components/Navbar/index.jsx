@@ -1,10 +1,13 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
+
+import AuthContext from '../../context/AuthContext';
 
 import classes from './styles.module.css';
-import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
+	const authContext = useContext(AuthContext);
+
 	return (
 		<>
 			<nav>
@@ -13,9 +16,20 @@ const Navbar = () => {
 					<li>
 						<NavLink to="/">Home</NavLink>
 					</li>
+
 					<li>
 						<NavLink to="/products">Products</NavLink>
 					</li>
+
+					{authContext.isLoggedIn ? (
+						<li className={classes['authentication-btn']}>
+							<NavLink to="/signin">Sign In</NavLink>
+						</li>
+					) : (
+						<li className={classes['authentication-btn']}>
+							<NavLink to="/products">Sign Up</NavLink>
+						</li>
+					)}
 				</ul>
 			</nav>
 

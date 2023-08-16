@@ -5,8 +5,8 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import Error from './pages/Error';
-
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 import './App.css';
 
@@ -22,6 +22,7 @@ function App() {
 				</Route>
 
 				<Route path="login" element={<Login />} />
+				<Route path="signup" element={<Signup />} />
 				<Route path="*" element={<Error />} />
 			</Routes>
 		</>

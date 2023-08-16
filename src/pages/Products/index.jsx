@@ -27,8 +27,20 @@ const Products = () => {
 			.get('https://fakestoreapi.com/products')
 			.then((response) => {
 				setProducts(response.data);
-				setProductsToShow(response.data);
-				setCategorizedProducts(response.data);
+
+				if (!categoryParam) {
+					console.log('emp');
+					setProductsToShow(response.data);
+					setCategorizedProducts(response.data);
+				} else {
+					const prods = response.data.filter(
+						(product) => product.category === categoryParam
+					);
+
+					setProductsToShow([...prods]);
+					setCategorizedProducts([...prods]);
+				}
+
 				setLoading(false);
 			})
 			.catch((error) => {

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
@@ -8,6 +9,7 @@ import classes from './styles.module.css';
 
 const Login = () => {
 	const authContext = useContext(AuthContext);
+	const navigate = useNavigate();
 
 	const defaultValues = {
 		email: '',
@@ -21,6 +23,7 @@ const Login = () => {
 
 	const handleSubmit = (values) => {
 		authContext.onLogin(values.email, values.password);
+		navigate('/');
 	};
 
 	return (

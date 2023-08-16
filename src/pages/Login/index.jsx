@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+
+import AuthContext from '../../context/AuthContext';
 
 import classes from './styles.module.css';
 
 const Login = () => {
+	const authContext = useContext(AuthContext);
+
 	const defaultValues = {
 		email: '',
 		password: '',
@@ -16,7 +20,7 @@ const Login = () => {
 	});
 
 	const handleSubmit = (values) => {
-		console.log(values);
+		authContext.onLogin(values.email, values.password);
 	};
 
 	return (

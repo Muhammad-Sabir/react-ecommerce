@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
@@ -67,7 +67,7 @@ const Login = () => {
 
 				<p className={classes['signup-link']}>
 					No account?
-					<a href="">Sign up</a>
+					<Link to="/signup">Sign up</Link>
 				</p>
 			</Form>
 		</Formik>

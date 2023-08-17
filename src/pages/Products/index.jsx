@@ -29,7 +29,6 @@ const Products = () => {
 				setProducts(response.data);
 
 				if (!categoryParam) {
-					console.log('emp');
 					setProductsToShow(response.data);
 					setCategorizedProducts(response.data);
 				} else {
@@ -66,7 +65,6 @@ const Products = () => {
 
 	const onSearchHandler = (event) => {
 		const input = event.target.value;
-		console.log(input);
 
 		const prods = categorizedProducts.filter((product) => {
 			return product.title.toLowerCase().startsWith(input.toLowerCase());

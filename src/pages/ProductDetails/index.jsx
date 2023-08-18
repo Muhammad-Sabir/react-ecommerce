@@ -44,8 +44,11 @@ const ProductDetails = () => {
 				<p className={classes['product__details__description']}>
 					{product.description}
 				</p>
+				<p className={classes['product__details__price']}>
+					$ {product.price} USD
+				</p>
 				<p className={classes['product__details__rating']}>
-					Rating: {product.rating.rate}
+					Rating: {product.rating.rate} 
 					<span
 						className={classes['product__details__rating__count']}
 					>
@@ -63,7 +66,9 @@ const ProductDetails = () => {
 						}
 					/>
 					<button
-						className={classes['product__details__add-to-cart__btn']}
+						className={
+							classes['product__details__add-to-cart__btn']
+						}
 					>
 						Add to Cart
 					</button>

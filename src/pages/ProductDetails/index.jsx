@@ -29,22 +29,44 @@ const ProductDetails = () => {
 	}
 
 	return (
-		<div>
-			<div>
+		<div className={classes['product']}>
+			<div className={classes['product__image']}>
 				<img src={product.image} alt="Product Image" />
 			</div>
 
-			<div>
-				<p>{product.category}</p>
-				<h2>{product.title}</h2>
-				<p>{product.description}</p>
-				<p>
-					Rating: {product.rating.rate} ({product.rating.count})
+			<div className={classes['product__details']}>
+				<p className={classes['product__details__category']}>
+					{product.category}
+				</p>
+				<h2 className={classes['product__details__title']}>
+					{product.title}
+				</h2>
+				<p className={classes['product__details__description']}>
+					{product.description}
+				</p>
+				<p className={classes['product__details__rating']}>
+					Rating: {product.rating.rate}
+					<span
+						className={classes['product__details__rating__count']}
+					>
+						({product.rating.count})
+					</span>
 				</p>
 
-				<div>
-					<input type="number" name="quantity" min="1" />
-					<button>Add to Cart</button>
+				<div className={classes['product__details__add-to-cart']}>
+					<input
+						type="number"
+						name="quantity"
+						min="1"
+						className={
+							classes['product__details__add-to-cart__input']
+						}
+					/>
+					<button
+						className={classes['product__details__add-to-cart__btn']}
+					>
+						Add to Cart
+					</button>
 				</div>
 			</div>
 		</div>

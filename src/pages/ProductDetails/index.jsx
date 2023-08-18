@@ -16,6 +16,7 @@ const ProductDetails = () => {
 			.get(`https://fakestoreapi.com/products/${id}`)
 			.then((response) => {
 				setProduct(response.data);
+				console.log(response.data);
 				setLoading(false);
 			})
 			.catch((error) => {
@@ -27,7 +28,27 @@ const ProductDetails = () => {
 		return <Loader />;
 	}
 
-	return <></>;
+	return (
+		<div>
+			<div>
+				<img src={product.image} alt="Product Image" />
+			</div>
+
+			<div>
+				<p>{product.category}</p>
+				<h2>{product.title}</h2>
+				<p>{product.description}</p>
+				<p>
+					Rating: {product.rating.rate} ({product.rating.count})
+				</p>
+
+				<div>
+					<input type="number" name="quantity" min="1" />
+					<button>Add to Cart</button>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default ProductDetails;

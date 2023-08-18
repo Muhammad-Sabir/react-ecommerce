@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import Loader from '../../components/Loader';
 
 import classes from './styles.module.css';
+import { useParams } from 'react-router-dom';
 
-const ProductDetails = ({ id }) => {
+const ProductDetails = () => {
+	const { id } = useParams();
 	const [product, setProduct] = useState();
 	const [loading, setLoading] = useState(true);
 
@@ -23,8 +25,8 @@ const ProductDetails = ({ id }) => {
 
 	if (loading) {
 		return <Loader />;
-    }
-    
+	}
+
 	return <></>;
 };
 

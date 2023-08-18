@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import ProductGrid from '../../components/ProductGrid';
 import CategorySidebar from '../../components/CategorySidebar';
+import Loader from '../../components/Loader';
 
 import classes from './styles.module.css';
 
@@ -118,11 +119,7 @@ const Products = () => {
 	};
 
 	if (loading) {
-		return (
-			<div className={classes['custom-loader-container']}>
-				<div className={classes['custom-loader']}></div>
-			</div>
-		);
+		return <Loader />;
 	}
 
 	return (

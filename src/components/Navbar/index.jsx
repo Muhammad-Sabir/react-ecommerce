@@ -37,6 +37,10 @@ const Navbar = () => {
 							<NavLink to="/login">Sign In</NavLink>
 						</li>
 					)}
+
+					<li>
+						<button className={classes['cart-btn']}>Cart</button>
+					</li>
 				</ul>
 			</nav>
 

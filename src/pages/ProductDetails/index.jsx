@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../../store/cart';
 
 import Loader from '../../components/Loader';
 
 import classes from './styles.module.css';
-import { useParams } from 'react-router-dom';
 
 const ProductDetails = () => {
 	const { id } = useParams();
@@ -16,13 +18,18 @@ const ProductDetails = () => {
 			.get(`https://fakestoreapi.com/products/${id}`)
 			.then((response) => {
 				setProduct(response.data);
-				console.log(response.data);
 				setLoading(false);
 			})
 			.catch((error) => {
 				console.error('Error fetching products:', error);
 			});
 	}, []);
+
+	const dispatch = useDispatch();
+
+	const addToCartHandler = () => {
+		dispatch(cartActions.addProductToCart(product));
+	};
 
 	if (loading) {
 		return <Loader />;
@@ -48,7 +55,7 @@ const ProductDetails = () => {
 					$ {product.price} USD
 				</p>
 				<p className={classes['product__details__rating']}>
-					Rating: {product.rating.rate} 
+					Rating: {product.rating.rate}
 					<span
 						className={classes['product__details__rating__count']}
 					>
@@ -69,6 +76,7 @@ const ProductDetails = () => {
 						className={
 							classes['product__details__add-to-cart__btn']
 						}
+						onClick={addToCartHandler}
 					>
 						Add to Cart
 					</button>

@@ -33,3 +33,8 @@ nav {
 .nav-links li a.active {
 	font-weight: 700;
 }
+
+.cart-btn {
+	padding: 0 1rem;
+	cursor: pointer;
+}

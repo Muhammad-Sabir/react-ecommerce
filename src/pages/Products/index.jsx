@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import ProductGrid from '../../components/ProductGrid';
 import CategorySidebar from '../../components/CategorySidebar';
+import Loader from '../../components/Loader';
 
 import classes from './styles.module.css';
 
@@ -29,7 +30,6 @@ const Products = () => {
 				setProducts(response.data);
 
 				if (!categoryParam) {
-					console.log('emp');
 					setProductsToShow(response.data);
 					setCategorizedProducts(response.data);
 				} else {
@@ -66,7 +66,6 @@ const Products = () => {
 
 	const onSearchHandler = (event) => {
 		const input = event.target.value;
-		console.log(input);
 
 		const prods = categorizedProducts.filter((product) => {
 			return product.title.toLowerCase().startsWith(input.toLowerCase());
@@ -120,11 +119,7 @@ const Products = () => {
 	};
 
 	if (loading) {
-		return (
-			<div className={classes['custom-loader-container']}>
-				<div className={classes['custom-loader']}></div>
-			</div>
-		);
+		return <Loader />;
 	}
 
 	return (

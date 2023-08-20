@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import AuthContext from '../../context/AuthContext';
 
@@ -7,6 +8,12 @@ import classes from './styles.module.css';
 
 const Navbar = () => {
 	const authContext = useContext(AuthContext);
+
+	const products = useSelector((state) => state.cart.products);
+
+	const cartHandler = () => {
+		console.log(products);
+	};
 
 	return (
 		<>
@@ -39,7 +46,12 @@ const Navbar = () => {
 					)}
 
 					<li>
-						<button className={classes['cart-btn']}>Cart</button>
+						<button
+							onClick={cartHandler}
+							className={classes['cart-btn']}
+						>
+							Cart
+						</button>
 					</li>
 				</ul>
 			</nav>

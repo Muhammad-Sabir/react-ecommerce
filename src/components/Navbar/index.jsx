@@ -29,30 +29,31 @@ const Navbar = () => {
 					</li>
 
 					{authContext.isLoggedIn ? (
-						<li className={classes['authentication-btn']}>
-							<NavLink
-								to="/"
-								onClick={() => {
-									authContext.onLogout();
-								}}
-							>
-								Logout
-							</NavLink>
-						</li>
+						<>
+							<li className={classes['authentication-btn']}>
+								<NavLink
+									to="/"
+									onClick={() => {
+										authContext.onLogout();
+									}}
+								>
+									Logout
+								</NavLink>
+							</li>
+							<li>
+								<button
+									onClick={cartHandler}
+									className={classes['cart-btn']}
+								>
+									Cart
+								</button>
+							</li>
+						</>
 					) : (
 						<li className={classes['authentication-btn']}>
 							<NavLink to="/login">Sign In</NavLink>
 						</li>
 					)}
-
-					<li>
-						<button
-							onClick={cartHandler}
-							className={classes['cart-btn']}
-						>
-							Cart
-						</button>
-					</li>
 				</ul>
 			</nav>
 

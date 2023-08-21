@@ -64,13 +64,11 @@ const ProductDetails = () => {
 				</p>
 
 				<button
-						className={
-							classes['add-to-cart__btn']
-						}
-						onClick={addToCartHandler}
-					>
-						Add to Cart
-					</button>
+					className={classes['add-to-cart__btn']}
+					onClick={addToCartHandler}
+				>
+					Add to Cart
+				</button>
 			</div>
 		</div>
 	);

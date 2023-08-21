@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../../store/cart';
 
+import AuthContext from '../../context/AuthContext';
 import Loader from '../../components/Loader';
 
 import classes from './styles.module.css';
 
 const ProductDetails = () => {
+	const authContext = useContext(AuthContext);
+
 	const { id } = useParams();
 	const [product, setProduct] = useState();
 	const [loading, setLoading] = useState(true);
@@ -63,12 +66,18 @@ const ProductDetails = () => {
 					</span>
 				</p>
 
-				<button
-					className={classes['add-to-cart__btn']}
-					onClick={addToCartHandler}
-				>
-					Add to Cart
-				</button>
+				{authContext.isLoggedIn ? (
+					<button
+						className={classes['add-to-cart__btn']}
+						onClick={addToCartHandler}
+					>
+						Add to Cart
+					</button>
+				) : (
+					<p className={classes['add-to-cart__sign-in']}>
+						Sign In to Add to Cart
+					</p>
+				)}
 			</div>
 		</div>
 	);

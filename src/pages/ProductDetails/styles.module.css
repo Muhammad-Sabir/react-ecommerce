@@ -66,3 +66,13 @@
 	width: 100%;
 	cursor: pointer;
 }
+
+.add-to-cart__sign-in {
+	margin-top: 2rem;
+	border: #6a6a6e 1px solid;
+	font-size: 1.5rem;
+	text-align: center;
+	background-color: rgb(161, 24, 24);
+	color: white;
+	font-weight: 600;
+}

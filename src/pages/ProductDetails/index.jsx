@@ -63,24 +63,14 @@ const ProductDetails = () => {
 					</span>
 				</p>
 
-				<div className={classes['product__details__add-to-cart']}>
-					<input
-						type="number"
-						name="quantity"
-						min="1"
+				<button
 						className={
-							classes['product__details__add-to-cart__input']
-						}
-					/>
-					<button
-						className={
-							classes['product__details__add-to-cart__btn']
+							classes['add-to-cart__btn']
 						}
 						onClick={addToCartHandler}
 					>
 						Add to Cart
 					</button>
-				</div>
 			</div>
 		</div>
 	);

@@ -9,10 +9,9 @@ import classes from './styles.module.css';
 const Navbar = () => {
 	const authContext = useContext(AuthContext);
 
-	const products = useSelector((state) => state.cart.products);
+	
 
 	const cartHandler = () => {
-		console.log(products);
 	};
 
 	return (

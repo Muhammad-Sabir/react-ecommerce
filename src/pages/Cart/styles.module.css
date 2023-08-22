@@ -1,0 +1,27 @@
+.heading {
+	text-align: center;
+	font-family: 'Fjalla One', sans-serif;
+	letter-spacing: 0.3rem;
+	font-size: 4rem;
+	margin-top: 2rem;
+}
+
+.products-card {
+	max-width: 50%;
+	margin-left: 25%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+	margin-top: 2rem;
+}
+
+.image-container {
+	width: 5%;
+}
+
+.products-card__details {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}

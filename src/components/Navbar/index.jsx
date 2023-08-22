@@ -17,7 +17,7 @@ const Navbar = () => {
 
 	return (
 		<>
-			<nav>
+			<nav className={classes['nav']}>
 				<div className={classes['logo']}>E-COMMERCE</div>
 				<ul className={classes['nav-links']}>
 					<li>

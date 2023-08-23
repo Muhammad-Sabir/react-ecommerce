@@ -1,14 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import Card from '../../components/Card';
-
 import classes from './styles.module.css';
 
 const Cart = () => {
 	const products = useSelector((state) => state.cart.products);
-
-	console.log(products);
 
 	return (
 		<>
@@ -41,7 +37,11 @@ const Cart = () => {
 							</p>
 						</div>
 
-						<p>{item.quantity}</p>
+						<div className={classes['quantity']}>
+							<button>+</button>
+							<p>{item.quantity}</p>
+							<button>-</button>
+						</div>
 					</div>
 				);
 			})}

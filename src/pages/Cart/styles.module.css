@@ -25,3 +25,12 @@
 	align-items: center;
 	gap: 1rem;
 }
+
+.quantity {
+	text-align: center;
+}
+
+.quantity button {
+	width: 2rem;
+	cursor: pointer;
+}

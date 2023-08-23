@@ -60,17 +60,19 @@
 	margin-left: 0.25rem;
 }
 
-.product__details__add-to-cart {
+.add-to-cart__btn {
 	margin-top: 2rem;
-	display: flex;
-	gap: 1rem;
+	padding: 0.5rem 0;
+	width: 100%;
+	cursor: pointer;
 }
 
-.product__details__add-to-cart__input {
-	padding: 0.5rem;
-	width: 8%;
-}
-
-.product__details__add-to-cart__btn {
-	width: 92%;
+.add-to-cart__sign-in {
+	margin-top: 2rem;
+	border: #6a6a6e 1px solid;
+	font-size: 1.5rem;
+	text-align: center;
+	background-color: rgb(161, 24, 24);
+	color: white;
+	font-weight: 600;
 }

@@ -1,16 +1,22 @@
 import React, { useContext } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import AuthContext from '../../context/AuthContext';
 
 import classes from './styles.module.css';
 
 const Navbar = () => {
+	const navigate = useNavigate();
 	const authContext = useContext(AuthContext);
+
+	const cartHandler = () => {
+		navigate('/cart');
+	};
 
 	return (
 		<>
-			<nav>
+			<nav className={classes['nav']}>
 				<div className={classes['logo']}>E-COMMERCE</div>
 				<ul className={classes['nav-links']}>
 					<li>
@@ -22,25 +28,31 @@ const Navbar = () => {
 					</li>
 
 					{authContext.isLoggedIn ? (
-						<li className={classes['authentication-btn']}>
-							<NavLink
-								to="/"
-								onClick={() => {
-									authContext.onLogout();
-								}}
-							>
-								Logout
-							</NavLink>
-						</li>
+						<>
+							<li className={classes['authentication-btn']}>
+								<NavLink
+									to="/"
+									onClick={() => {
+										authContext.onLogout();
+									}}
+								>
+									Logout
+								</NavLink>
+							</li>
+							<li>
+								<button
+									onClick={cartHandler}
+									className={classes['cart-btn']}
+								>
+									Cart
+								</button>
+							</li>
+						</>
 					) : (
 						<li className={classes['authentication-btn']}>
 							<NavLink to="/login">Sign In</NavLink>
 						</li>
 					)}
-
-					<li>
-						<button className={classes['cart-btn']}>Cart</button>
-					</li>
 				</ul>
 			</nav>
 

@@ -8,6 +8,16 @@ import classes from './styles.module.css';
 const Cart = () => {
 	const products = useSelector((state) => state.cart.products);
 
+	const dispatch = useDispatch();
+
+	const addToCartHandler = (product) => {
+		dispatch(cartActions.addProductToCart(product));
+	};
+
+	const removeFromCartHandler = (product) => {
+		dispatch(cartActions.removeProductFromCart(product));
+	};
+
 	return (
 		<>
 			<h1 className={classes['heading']}>Your Cart</h1>
@@ -40,9 +50,19 @@ const Cart = () => {
 						</div>
 
 						<div className={classes['quantity']}>
-							<button>+</button>
+							<button
+								onClick={() => addToCartHandler(item.product)}
+							>
+								+
+							</button>
 							<p>{item.quantity}</p>
-							<button>-</button>
+							<button
+								onClick={() =>
+									removeFromCartHandler(item.product)
+								}
+							>
+								-
+							</button>
 						</div>
 					</div>
 				);

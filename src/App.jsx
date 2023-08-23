@@ -9,6 +9,7 @@ import ProductDetails from './pages/ProductDetails';
 import Error from './pages/Error';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Cart from './pages/Cart';
 
 import store from './store/index';
 
@@ -31,6 +32,7 @@ function App() {
 							path="product-details/:id"
 							element={<ProductDetails />}
 						/>
+						<Route path="cart" element={<Cart />} />
 					</Route>
 
 					<Route path="login" element={<Login />} />

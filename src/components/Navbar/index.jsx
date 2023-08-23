@@ -1,23 +1,22 @@
 import React, { useContext } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import AuthContext from '../../context/AuthContext';
 
 import classes from './styles.module.css';
 
 const Navbar = () => {
+	const navigate = useNavigate();
 	const authContext = useContext(AuthContext);
 
-	const products = useSelector((state) => state.cart.products);
-
 	const cartHandler = () => {
-		console.log(products);
+		navigate('/cart');
 	};
 
 	return (
 		<>
-			<nav>
+			<nav className={classes['nav']}>
 				<div className={classes['logo']}>E-COMMERCE</div>
 				<ul className={classes['nav-links']}>
 					<li>

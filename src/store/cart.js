@@ -20,6 +20,19 @@ const cartSlice = createSlice({
 				});
 			}
 		},
+		removeProductFromCart(state, action) {
+			const existingProductIndex = state.products.findIndex(
+				(item) => item.product.id === action.payload.id
+			);
+
+			if (existingProductIndex !== -1) {
+				if (state.products[existingProductIndex].quantity > 1) {
+					state.products[existingProductIndex].quantity--;
+				} else {
+					state.products.splice(existingProductIndex, 1);
+				}
+			}
+		},
 	},
 });
 

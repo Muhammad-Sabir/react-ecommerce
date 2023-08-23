@@ -1,4 +1,4 @@
-nav {
+.nav {
 	background-color: #292c39;
 	color: white;
 	display: flex;
@@ -35,6 +35,6 @@ nav {
 }
 
 .cart-btn {
-	padding: 0 1rem;
+	padding: 0 2rem;
 	cursor: pointer;
 }

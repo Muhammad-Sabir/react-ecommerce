@@ -1,5 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { cartActions } from '../../store/cart';
 
 import classes from './styles.module.css';
 

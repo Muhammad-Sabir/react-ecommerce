@@ -48,6 +48,6 @@ a {
 	color: rgb(170, 37, 37);
 }
 
-.authentication-green {
-	color: green;
+.authentication-green a {
+	color: rgb(0, 121, 0);
 }

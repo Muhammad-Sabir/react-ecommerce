@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 import AuthContext from '../../context/AuthContext';
 
@@ -17,7 +19,9 @@ const Navbar = () => {
 	return (
 		<>
 			<nav className={classes['nav']}>
-				<div className={classes['logo']}>E-COMMERCE</div>
+				<NavLink to="/" className={classes['logo']}>
+					E-COMMERCE
+				</NavLink>
 
 				<ul className={classes['nav-links']}>
 					<li>
@@ -31,12 +35,12 @@ const Navbar = () => {
 
 				{authContext.isLoggedIn ? (
 					<div className={classes['cart-auth']}>
-						<button
+						<div
 							onClick={cartHandler}
 							className={classes['cart-btn']}
 						>
-							Cart
-						</button>
+							<FontAwesomeIcon icon={faShoppingCart} />
+						</div>
 
 						<div className={classes['authentication-btn']}>
 							<NavLink

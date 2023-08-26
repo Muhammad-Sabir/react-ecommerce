@@ -1,6 +1,5 @@
 .nav {
-	background-color: #292c39;
-	color: white;
+	color: #292c39;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -11,6 +10,8 @@
 	font-size: 1.8rem;
 	letter-spacing: 4px;
 	font-family: 'Fjalla One', sans-serif;
+	font-weight: 900;
+	cursor: pointer;
 }
 
 .nav-links {
@@ -20,18 +21,10 @@
 }
 
 a {
-	color: white;
+	color: #292c39; /* 406bd0 */
 	text-decoration: none;
-	font-weight: 500;
-	font-size: 1.2rem;
-}
-
-a:hover {
-	color: lightgray;
-}
-
-a.active {
 	font-weight: 700;
+	font-size: 1.2rem;
 }
 
 .cart-auth {

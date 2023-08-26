@@ -36,10 +36,18 @@ a {
 	cursor: pointer;
 	background-color: #292c39;
 	color: white;
-	border-radius: 2rem;
+	border-radius: 0.4rem;
 	padding: 0.1rem 1rem;
 }
 
 .cart-btn__prods-count {
 	margin-left: 0.5rem;
+}
+
+.authentication-red a {
+	color: rgb(170, 37, 37);
+}
+
+.authentication-green {
+	color: green;
 }

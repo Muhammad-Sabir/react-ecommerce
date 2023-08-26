@@ -59,7 +59,7 @@ const Navbar = () => {
 							</span>
 						</div>
 
-						<div className={classes['authentication-btn']}>
+						<div className={classes['authentication-red']}>
 							<NavLink
 								to="/"
 								onClick={() => {
@@ -71,7 +71,7 @@ const Navbar = () => {
 						</div>
 					</div>
 				) : (
-					<div className={classes['authentication-btn']}>
+					<div className={classes['authentication-green']}>
 						<NavLink to="/login">Sign In</NavLink>
 					</div>
 				)}

@@ -33,6 +33,13 @@ a {
 }
 
 .cart-btn {
-	padding: 0 2rem;
 	cursor: pointer;
+	background-color: #292c39;
+	color: white;
+	border-radius: 2rem;
+	padding: 0.1rem 1rem;
+}
+
+.cart-btn__prods-count {
+	margin-left: 0.5rem;
 }

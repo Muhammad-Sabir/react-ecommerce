@@ -19,19 +19,24 @@
 	gap: 2rem;
 }
 
-.nav-links li a {
+a {
 	color: white;
 	text-decoration: none;
 	font-weight: 500;
 	font-size: 1.2rem;
 }
 
-.nav-links li a:hover {
+a:hover {
 	color: lightgray;
 }
 
-.nav-links li a.active {
+a.active {
 	font-weight: 700;
+}
+
+.cart-auth {
+	display: flex;
+	gap: 2rem;
 }
 
 .cart-btn {

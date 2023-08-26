@@ -18,6 +18,7 @@ const Navbar = () => {
 		<>
 			<nav className={classes['nav']}>
 				<div className={classes['logo']}>E-COMMERCE</div>
+
 				<ul className={classes['nav-links']}>
 					<li>
 						<NavLink to="/">Home</NavLink>
@@ -26,34 +27,33 @@ const Navbar = () => {
 					<li>
 						<NavLink to="/products">Products</NavLink>
 					</li>
-
-					{authContext.isLoggedIn ? (
-						<>
-							<li className={classes['authentication-btn']}>
-								<NavLink
-									to="/"
-									onClick={() => {
-										authContext.onLogout();
-									}}
-								>
-									Logout
-								</NavLink>
-							</li>
-							<li>
-								<button
-									onClick={cartHandler}
-									className={classes['cart-btn']}
-								>
-									Cart
-								</button>
-							</li>
-						</>
-					) : (
-						<li className={classes['authentication-btn']}>
-							<NavLink to="/login">Sign In</NavLink>
-						</li>
-					)}
 				</ul>
+
+				{authContext.isLoggedIn ? (
+					<div className={classes['cart-auth']}>
+						<button
+							onClick={cartHandler}
+							className={classes['cart-btn']}
+						>
+							Cart
+						</button>
+
+						<div className={classes['authentication-btn']}>
+							<NavLink
+								to="/"
+								onClick={() => {
+									authContext.onLogout();
+								}}
+							>
+								Logout
+							</NavLink>
+						</div>
+					</div>
+				) : (
+					<div className={classes['authentication-btn']}>
+						<NavLink to="/login">Sign In</NavLink>
+					</div>
+				)}
 			</nav>
 
 			<Outlet />

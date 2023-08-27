@@ -18,7 +18,13 @@ const Login = () => {
 
 	const validationSchema = yup.object().shape({
 		email: yup.string().required('Required').email('Invalid email'),
-		password: yup.string().required('Required'),
+		password: yup
+			.string()
+			.required('Password is required')
+			.matches(
+				/^(?=.*[A-Z])(?=.*\d).{8,}$/,
+				'Password must contain at least 8 characters, one uppercase letter, and one number'
+			),
 	});
 
 	const handleSubmit = (values) => {

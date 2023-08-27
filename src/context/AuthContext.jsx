@@ -1,30 +1,49 @@
 import React, { useEffect, useState } from 'react';
+import {
+	createUserWithEmailAndPassword,
+	onAuthStateChanged,
+	signInWithEmailAndPassword,
+	signOut,
+} from 'firebase/auth';
+import { auth } from '../firebaseConfig';
 
 const AuthContext = React.createContext({
 	isLoggedIn: false,
 	onLogin: (email, password) => {},
+	onSignUp: (email, password) => {},
 	onLogout: () => {},
 });
 
 export const AuthContextProvider = ({ children }) => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-	useEffect(() => {
-		const storedLogInData = localStorage.getItem('isLoggedIn');
+	onAuthStateChanged(auth, (currentUser) => {
+		if (currentUser) setIsLoggedIn(true);
+		else setIsLoggedIn(false);
+	});
 
-		if (storedLogInData === '1') {
-			setIsLoggedIn(true);
+	const onSignUpHandler = async (email, password) => {
+		try {
+			await createUserWithEmailAndPassword(auth, email, password);
+		} catch (err) {
+			console.log(err.message);
 		}
-	}, []);
-
-	const onLoginHandler = () => {
-		localStorage.setItem('isLoggedIn', '1');
-		setIsLoggedIn(true);
 	};
 
-	const onLogoutHandler = () => {
-		localStorage.removeItem('isLoggedIn');
-		setIsLoggedIn(false);
+	const onLoginHandler = async (email, password) => {
+		try {
+			await signInWithEmailAndPassword(auth, email, password);
+		} catch (err) {
+			console.log(err.message);
+		}
+	};
+
+	const onLogoutHandler = async () => {
+		try {
+			await signOut(auth);
+		} catch (err) {
+			console.log(err.message);
+		}
 	};
 
 	return (
@@ -33,6 +52,7 @@ export const AuthContextProvider = ({ children }) => {
 				isLoggedIn: isLoggedIn,
 				onLogin: onLoginHandler,
 				onLogout: onLogoutHandler,
+				onSignUp: onSignUpHandler,
 			}}
 		>
 			{children}

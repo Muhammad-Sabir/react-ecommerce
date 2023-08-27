@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
+import AuthContext from '../../context/AuthContext';
+
 import classes from './styles.module.css';
 
 const Signup = () => {
+	const authContext = useContext(AuthContext);
 	const navigate = useNavigate();
 
 	const initialValues = {
@@ -39,6 +42,7 @@ const Signup = () => {
 	});
 
 	const handleSubmit = (values) => {
+		authContext.onSignUp(values.email, values.password);
 		navigate('/');
 	};
 

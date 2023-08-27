@@ -1,11 +1,10 @@
 .products {
-  display: flex;
-  flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
-  justify-content: space-between;
 }
 
 .products__product {
-  max-width: 20rem;
-  height: 300px;
+	max-width: 20rem;
+	height: 300px;
 }

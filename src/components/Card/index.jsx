@@ -6,7 +6,10 @@ const Card = (props) => {
 	// props - className
 
 	return (
-		<div className={`${classes['card']} ${props.className}`}>
+		<div
+			className={`${classes['card']} ${props.className}`}
+			onClick={props.onClick}
+		>
 			{props.children}
 		</div>
 	);

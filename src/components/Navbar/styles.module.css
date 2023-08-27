@@ -1,6 +1,5 @@
 .nav {
-	background-color: #292c39;
-	color: white;
+	color: #292c39;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -11,6 +10,8 @@
 	font-size: 1.8rem;
 	letter-spacing: 4px;
 	font-family: 'Fjalla One', sans-serif;
+	font-weight: 900;
+	cursor: pointer;
 }
 
 .nav-links {
@@ -19,22 +20,34 @@
 	gap: 2rem;
 }
 
-.nav-links li a {
-	color: white;
+a {
+	color: #292c39; /* 406bd0 */
 	text-decoration: none;
-	font-weight: 500;
+	font-weight: 700;
 	font-size: 1.2rem;
 }
 
-.nav-links li a:hover {
-	color: lightgray;
-}
-
-.nav-links li a.active {
-	font-weight: 700;
+.cart-auth {
+	display: flex;
+	gap: 2rem;
 }
 
 .cart-btn {
-	padding: 0 2rem;
 	cursor: pointer;
+	background-color: #292c39;
+	color: white;
+	border-radius: 0.4rem;
+	padding: 0.1rem 1rem;
+}
+
+.cart-btn__prods-count {
+	margin-left: 0.5rem;
+}
+
+.authentication-red a {
+	color: rgb(170, 37, 37);
+}
+
+.authentication-green a {
+	color: rgb(0, 121, 0);
 }

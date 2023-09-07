@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 import Card from '../Card';
@@ -18,7 +17,7 @@ const Product = ({ id, title, price, category, imageLink, className }) => {
 			className={`${classes['product']} ${className}`}
 			onClick={onProductClickHandler}
 		>
-			<div className={classes['image-container']}>
+			<div className={classes['product__image']}>
 				<img src={imageLink} alt={title} />
 			</div>
 

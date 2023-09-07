@@ -14,6 +14,7 @@
 	user-select: none;
 	font-weight: bolder;
 	color: black;
+	overflow: hidden;
 }
 
 .card:hover {
